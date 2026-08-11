@@ -4,8 +4,6 @@ A beginner-friendly **Retrieval-Augmented Generation (RAG)** application built w
 
 Upload a PDF document, ask questions about its content, and get answers grounded in the uploaded document.
 
-This project is part of the **AI Projects Series** from **Karthik's Show**.
-
 ## Features
 
 - Upload a PDF document
