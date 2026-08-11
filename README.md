@@ -76,14 +76,14 @@ rag-document-chatbot/
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/KarthiksShow/rag-document-chatbot.git
-cd rag-document-chatbot
+git clone https://github.com/vinothbhc1986/rag-chatbot.git
+cd rag-chatbot/
 ```
 
 ### 2. Create a virtual environment
 
 ```bash
-python -m venv .venv
+ py -m venv .venv
 ```
 
 ### 3. Activate the virtual environment
@@ -97,7 +97,7 @@ Windows PowerShell:
 ### 4. Install dependencies
 
 ```bash
-python -m pip install -r requirements.txt
+pip install -r .\requirements.txt
 ```
 
 ## Environment Variables
