@@ -4,6 +4,16 @@ A beginner-friendly **Retrieval-Augmented Generation (RAG)** application built w
 
 Upload a PDF document, ask questions about its content, and get answers grounded in the uploaded document.
 
+## Tech Stack
+
+- Python
+- Streamlit
+- pypdf
+- Sentence Transformers
+- FAISS
+- Groq
+- python-dotenv
+
 What you’ll learn:
 ✅ Upload and extract text from PDF files
 ✅ Split large documents into chunks
@@ -31,15 +41,6 @@ What you’ll learn:
 - Handle missing API keys and model/API errors
 - Avoid answering from outside the uploaded document
 
-## Tech Stack
-
-- Python
-- Streamlit
-- pypdf
-- Sentence Transformers
-- FAISS
-- Groq
-- python-dotenv
 
 ## How RAG Works in This Project
 
