@@ -238,26 +238,16 @@ By building this project, you can understand:
 - How grounding can reduce unsupported answers
 - How to build a simple AI chat interface with Streamlit
 
-## YouTube Tutorial
 
-This project is explained step by step in Tamil on **Karthik's Show**.
 
-The tutorial covers:
+The covers:
 
-- Project setup
 - PDF text extraction
 - Document chunking
 - Embedding generation
 - FAISS similarity search
 - Groq answer generation
 - Streamlit chat interface
-- Final RAG testing
-
-## Channel
-
-**Karthik's Show**
-
-Learn. Build. Grow.
 
 ## License
 
