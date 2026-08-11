@@ -1,18 +1,18 @@
 # RAG Document Chatbot
 
-A beginner-friendly **Retrieval-Augmented Generation (RAG)** application built with Python.
+Intermidiate **Retrieval-Augmented Generation (RAG)** application built with Python.
 
 Upload a PDF document, ask questions about its content, and get answers grounded in the uploaded document.
 
 ## Tech Stack
 
 - Python
-- Streamlit
-- pypdf
-- Sentence Transformers
-- FAISS
-- Groq
-- python-dotenv
+- Streamlit --z. open source python framework. It is used to design rapid web application
+- pypdf 
+- Sentence Transformers - open source. Are AI models to   convert sentences/text into numerical embedding that captures the meaning
+- FAISS - opensource library. Facebook AI Similarity Search. It makest the search superfast.
+- Groq -- will store the model
+- python-dotenv 
 
 What you’ll learn:
 ✅ Upload and extract text from PDF files
@@ -67,9 +67,6 @@ Groq LLM
     ↓
 Grounded Answer
 ```
-
-The language model does not receive the entire PDF.
-
 Instead, FAISS retrieves the most relevant document chunks for the user's question, and only those chunks are passed to the Groq model as context.
 
 ## Project Structure
@@ -231,7 +228,7 @@ The system prompt instructs the model to:
 - This project works best with PDFs that contain selectable text.
 - Scanned or image-only PDFs require OCR, which is not included in this version.
 - The embedding model is downloaded the first time the application runs.
-- The current beginner-friendly implementation rebuilds document embeddings and the FAISS index during Streamlit reruns.
+- The intermediate application implementation rebuilds document embeddings and the FAISS index during Streamlit reruns.
 - For production use, document processing and vector indexes should be cached or persisted more efficiently.
 - This demo supports one uploaded PDF at a time.
 
