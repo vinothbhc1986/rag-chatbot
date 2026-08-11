@@ -1,6 +1,11 @@
 import streamlit as st
 from pypdf import PdfReader
 
+st.set_page_config(
+    page_title="RAG Document Chatbot",
+    page_icon="📄",
+    layout="wide"
+)
 
 def extract_text_from_pdf(pdf_file):
     pdf_reader = PdfReader(pdf_file)
@@ -44,24 +49,6 @@ def split_text_into_chunks(
 
     return chunks
 
-def create_chunk_embeddings(
-    chunks,
-    model
-):
-    embeddings = model.encode_document(
-        chunks,
-        convert_to_numpy=True,
-        normalize_embeddings=True
-    )
-
-    return embeddings
-
-st.set_page_config(
-    page_title="RAG Document Chatbot",
-    page_icon="📄",
-    layout="wide"
-)
-
 st.title("RAG Docuement Chatbot")
 
 st.write(
@@ -90,12 +77,6 @@ if uploaded_file is not None:
     document_chunks = split_text_into_chunks(document_text)
 
     chunk_count = len(document_chunks)
-
-    st.subheader("Ask a question")
-
-    user_question = st.text_input(
-    "Enter a question about the document"
-    )
 
     info_col1, info_col2, info_col3 = st.columns(3)
 
