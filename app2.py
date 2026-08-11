@@ -7,6 +7,20 @@ from sentence_transformers import SentenceTransformer
 from dotenv import load_dotenv
 import faiss
 
+st.set_page_config(
+    page_title="RAG Document Chatbot",
+    page_icon="📄",
+    layout="wide"
+)
+
+@st.cache_resource
+def load_embedding_model():
+    return SentenceTransformer(
+        "sentence-transformers/all-MiniLM-L6-v2"
+    )
+
+embedding_model = load_embedding_model()
+
 
 def extract_text_from_pdf(pdf_file):
     pdf_reader = PdfReader(pdf_file)
@@ -164,13 +178,6 @@ Question:
 
     return answer
 
-
-st.set_page_config(
-    page_title="RAG Document Chatbot",
-    page_icon="📄",
-    layout="wide"
-)
-
 load_dotenv()
 
 GROQ_API_KEY = os.getenv("GROQ_API_KEY")
@@ -190,16 +197,6 @@ groq_client = Groq(
     api_key=GROQ_API_KEY
 )
 
-if "uploaded_file_name" not in st.session_state:
-    st.session_state.uploaded_file_name = None
-
-@st.cache_resource
-def load_embedding_model():
-    return SentenceTransformer(
-        "sentence-transformers/all-MiniLM-L6-v2"
-    )
-
-embedding_model = load_embedding_model()
 
 st.title("RAG Docuement Chatbot")
 
@@ -211,15 +208,6 @@ st.write(
 uploaded_file = st.file_uploader("Upload a PDF document", type=["pdf"])
 
 if uploaded_file is not None:
-    if (
-        st.session_state.uploaded_file_name
-        != uploaded_file.name
-    ):
-        st.session_state.messages = []
-
-        st.session_state.uploaded_file_name = (
-            uploaded_file.name
-        )
     st.success(f"Uploaded successfully: {uploaded_file.name}")
 
     document_text, page_count = (
@@ -253,37 +241,14 @@ if uploaded_file is not None:
     chunk_embeddings
     )
 
-    # st.subheader("Ask a question")
+    st.subheader("Ask a question")
 
-    # user_question = st.text_input(
-    #     "Enter your question about the document"
-    # )
-
-    for message in st.session_state.messages:
-        with st.chat_message(
-            message["role"]
-        ):
-            st.markdown(
-                message["content"]
-            )
-
-    user_question = st.chat_input(
-    "Ask a question about the document"
+    user_question = st.text_input(
+    "Enter a question about the document"
     )
 
-    # answer = ""
-
     if user_question:
-        st.session_state.messages.append(
-            {
-                "role": "user",
-                "content": user_question
-            }
-        )
-
-        with st.chat_message("user"):
-            st.markdown(user_question)
-
+        
         relevant_chunks = (
             retrieve_relevant_chunks(
                 user_question,
@@ -333,11 +298,9 @@ if uploaded_file is not None:
     with info_col3:
         st.metric("Chunks", chunk_count)
 
-    # Show the full extracted text in a collapsible expander.
     with st.expander("Preview extracted text"):
         st.text_area("Document text", document_text, height=300, disabled=True)
 
-    # Show a preview of the first few document chunks.
 
     with st.expander("Preview document chunks"):
         preview_count = min(
