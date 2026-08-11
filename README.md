@@ -4,6 +4,26 @@ A beginner-friendly **Retrieval-Augmented Generation (RAG)** application built w
 
 Upload a PDF document, ask questions about its content, and get answers grounded in the uploaded document.
 
+What you’ll learn:
+✅ Upload and extract text from PDF files
+✅ Split large documents into chunks
+✅ Create embeddings using Sentence Transformers
+✅ Store and search embeddings with FAISS
+✅ Retrieve relevant document context
+✅ Generate answers using Groq LLM
+✅ Build a proper chatbot interface with Streamlit
+✅ Maintain conversation history with session state
+✅ Reduce hallucinations by grounding answers in the document7What you’ll learn:
+✅ Upload and extract text from PDF files
+✅ Split large documents into chunks
+✅ Create embeddings using Sentence Transformers
+✅ Store and search embeddings with FAISS
+✅ Retrieve relevant document context
+✅ Generate answers using Groq LLM
+✅ Build a proper chatbot interface with Streamlit
+✅ Maintain conversation history with session state
+✅ Reduce hallucinations by grounding answers in the document
+
 ## Features
 
 - Upload a PDF document
